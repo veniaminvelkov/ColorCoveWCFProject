@@ -15,5 +15,10 @@ namespace Data.Context
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Order> Orders { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server = DESKTOP-MSMIQ5L\\SQLEXPRESS; Database = ColorCoveWCFProjectDb; Trusted_Connection=True; TrustServerCertificate=True");
+            base.OnConfiguring(optionsBuilder);
+        }
     }
 }
