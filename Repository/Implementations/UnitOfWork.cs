@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Implementations
 {
-    internal class UnitOfWork : IDisposable
+    public class UnitOfWork : IDisposable
     {
         private ColorCoveDbContext context = new ColorCoveDbContext();
         private GenericRepository<Customer> customerRepository;
