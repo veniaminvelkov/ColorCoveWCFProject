@@ -48,6 +48,5 @@ namespace Data.Entities
 
 		[Required]
 		public DateTime ExpiryDate { get; set; }
-
 	}
 }

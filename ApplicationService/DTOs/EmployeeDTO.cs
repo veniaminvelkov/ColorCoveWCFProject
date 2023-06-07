@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ApplicationService.DTOs
 {
-    public class CustomerDTO : BaseDTO
+    public class EmployeeDTO : BaseDTO
     {
         [Required]
         [StringLength(15)]
