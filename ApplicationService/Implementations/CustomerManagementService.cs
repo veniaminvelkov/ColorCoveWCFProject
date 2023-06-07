@@ -19,15 +19,17 @@ namespace ApplicationService.Implementations
             {
                 foreach (var item in unitOfWork.CustomerRepository.Get())
                 {
-                    customerDTO.Add(new CustomerDTO
+                    if (item.IsSoftDeleted == false)
                     {
-                        Id = item.Id,
-                        Username = item.Username,
-                        Password = item.Password,
-                        FirstName = item.FirstName,
-                        LastName = item.LastName
-                    });
-
+                        customerDTO.Add(new CustomerDTO
+                        {
+                            Id = item.Id,
+                            Username = item.Username,
+                            Password = item.Password,
+                            FirstName = item.FirstName,
+                            LastName = item.LastName
+                        });
+                    }
                 }
             }
             return customerDTO;
@@ -39,7 +41,7 @@ namespace ApplicationService.Implementations
             using (UnitOfWork unitOfWork = new UnitOfWork())
             {
                 Customer customer = unitOfWork.CustomerRepository.GetByID(id);
-                if (customer != null)
+                if (customer != null && customer.IsSoftDeleted == false)
                 {
                     customerDTO = new CustomerDTO
                     {
@@ -57,25 +59,24 @@ namespace ApplicationService.Implementations
         {
             Customer customer = new Customer
             {
+                Id= customerDTO.Id,
                 Username= customerDTO.Username,
                 Password= customerDTO.Password,
                 FirstName = customerDTO.FirstName,
-                LastName = customerDTO.LastName
+                LastName = customerDTO.LastName,
+                IsSoftDeleted = false
             };
-
-            try
+            if (customer.DateRegistered == null)
             {
+                customer.DateRegistered = DateTime.Now;
+            }
+
                 using (UnitOfWork unitOfWork = new UnitOfWork())
                 {
                     unitOfWork.CustomerRepository.Insert(customer);
                     unitOfWork.Save();
                 }
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
         }
         public bool Delete(int id)
         {
@@ -93,6 +94,18 @@ namespace ApplicationService.Implementations
             {
                 return false;
             }
+        }
+        public bool SoftDelete(int id)
+        {
+            
+                using (UnitOfWork unitOfWork = new UnitOfWork())
+                {
+                    Customer customer = unitOfWork.CustomerRepository.GetByID(id);
+                    customer.IsSoftDeleted = true;
+                    unitOfWork.Save();
+                }
+            
+                return true;
         }
     }
 }
