@@ -27,9 +27,9 @@ namespace WcfServiceLibrary
         public string PostCustomer(CustomerDTO customerDto)
         {
             if (!service.Save(customerDto))
-                return "Customer is inserted";
+                return "Customer is not inserted";
 
-            return "Customer is not inserted";
+            return "Customer is inserted";
         }
 
         public string DeleteCustomer(int id)

@@ -5,24 +5,24 @@ using System.ServiceModel;
 namespace WcfServiceLibrary
 {
     [ServiceContract]
-    public interface ICustomer
+    public interface IEmployee
     {
         [OperationContract]
         string Message();
 
         [OperationContract]
-        List<CustomerDTO> GetCustomers();
+        List<EmployeeDTO> GetEmployees();
 
         [OperationContract]
-        CustomerDTO GetCustomerByID(int id);
+        EmployeeDTO GetEmployeeByID(int id);
 
         [OperationContract]
-        string PostCustomer(CustomerDTO customerDto);
+        string PostEmployee(EmployeeDTO employeeDto);
 
         [OperationContract]
-        string DeleteCustomer(int id);
+        string DeleteEmployee(int id);
 
         [OperationContract]
-        string SoftDeleteCustomer(int id);
+        string SoftDeleteEmployee(int id);
     }
 }

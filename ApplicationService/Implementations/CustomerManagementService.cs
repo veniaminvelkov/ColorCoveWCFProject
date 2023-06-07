@@ -64,19 +64,16 @@ namespace ApplicationService.Implementations
                 Password= customerDTO.Password,
                 FirstName = customerDTO.FirstName,
                 LastName = customerDTO.LastName,
-                IsSoftDeleted = false
+                IsSoftDeleted = false,
+                DateRegistered = DateTime.Now
             };
-            if (customer.DateRegistered == null)
-            {
-                customer.DateRegistered = DateTime.Now;
-            }
 
                 using (UnitOfWork unitOfWork = new UnitOfWork())
                 {
                     unitOfWork.CustomerRepository.Insert(customer);
                     unitOfWork.Save();
                 }
-                return true;
+            return true;
         }
         public bool Delete(int id)
         {

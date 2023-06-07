@@ -48,6 +48,7 @@
     <Compile Include="DTOs\OrderDTO.cs" />
     <Compile Include="DTOs\PaintDTO.cs" />
     <Compile Include="Implementations\CustomerManagementService.cs" />
+    <Compile Include="Implementations\EmployeeManagementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

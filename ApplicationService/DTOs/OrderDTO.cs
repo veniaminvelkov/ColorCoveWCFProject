@@ -16,7 +16,7 @@ namespace ApplicationService.DTOs
         public int PaintId { get; set; }
 
         [ForeignKey(nameof(CustomerId))]
-        public Customer OrderedBy { get; set; }
+        public Employee OrderedBy { get; set; }
 
         [ForeignKey(nameof(PaintId))]
         public Paint PaintOrdered { get; set; }
