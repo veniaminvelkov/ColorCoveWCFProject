@@ -39,6 +39,6 @@ namespace Data.Entities
         [Required]
         public DateTime DateOrdered { get; set; }
 
-        public string? OrderDetails { get; set; }
+        public string OrderDetails { get; set; }
     }
 }

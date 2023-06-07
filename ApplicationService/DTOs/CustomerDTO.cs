@@ -22,6 +22,6 @@ namespace ApplicationService.DTOs
         public string FirstName { get; set; }
 
         [StringLength(15)]
-        public string? LastName { get; set; }
+        public string LastName { get; set; }
     }
 }

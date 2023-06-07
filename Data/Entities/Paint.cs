@@ -38,7 +38,7 @@ namespace Data.Entities
 		public double Price { get; set; }
 
         [StringLength(120)]
-        public string? AdditionalInfo { get; set; }
+        public string AdditionalInfo { get; set; }
 
 		[Required]
 		public bool IsAvailable { get; set; }

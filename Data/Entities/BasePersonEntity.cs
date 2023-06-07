@@ -34,7 +34,7 @@ namespace Data.Entities
         public string FirstName { get; set; }
 
         [StringLength(15)]
-        public string? LastName { get; set; }
+        public string LastName { get; set; }
 
         [Required]
         public bool IsSoftDeleted { get; set; }
