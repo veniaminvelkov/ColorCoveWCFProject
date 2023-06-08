@@ -134,6 +134,15 @@ namespace ApplicationService.Implementations
 
             using (UnitOfWork unitOfWork = new UnitOfWork())
             {
+                /*
+                 * Result expected: item gets deleted and saved in the same id
+                 * Actual result: Item gets saved in the next unused id
+                 * 
+                if (unitOfWork.PaintRepository.GetByID(paint.Id) != null)
+                {
+                    unitOfWork.PaintRepository.Delete(paint.Id);
+                }
+                */
                 unitOfWork.PaintRepository.Insert(paint);
                 unitOfWork.Save();
             }
@@ -141,20 +150,13 @@ namespace ApplicationService.Implementations
         }
         public bool Delete(int id)
         {
-            try
-            {
                 using (UnitOfWork unitOfWork = new UnitOfWork())
                 {
                     Paint paint = unitOfWork.PaintRepository.GetByID(id);
-                    unitOfWork.EmployeeRepository.Delete(paint);
+                    unitOfWork.PaintRepository.Delete(paint);
                     unitOfWork.Save();
                 }
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
         }
         public bool MakeUnavailable(int id)
         {
