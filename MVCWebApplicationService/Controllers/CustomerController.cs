@@ -97,7 +97,7 @@ namespace MVCWebApplicationService.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.Csutomers = LoadDataUtilities.LoadCustomersData();
+            ViewBag.Customers = LoadDataUtilities.LoadCustomersData();
 
             return View();
         }
@@ -110,14 +110,14 @@ namespace MVCWebApplicationService.Controllers
             {
                 using (CustomerService.CustomerClient service = new CustomerService.CustomerClient())
                 {
-                    CustomerDTO studentDto = new CustomerDTO
+                    CustomerDTO studentDTO = new CustomerDTO
                     {
                         FirstName = customerVM.FirstName,
                         LastName = customerVM.LastName,
                         Username = customerVM.Username,
                         Password = customerVM.Password,
                     };
-                    service.PostCustomer(studentDto);
+                    service.PostCustomer(studentDTO);
                 }
                 return RedirectToAction("Index");
             }

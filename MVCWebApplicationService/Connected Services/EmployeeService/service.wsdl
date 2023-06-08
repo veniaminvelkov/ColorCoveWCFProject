@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="Employee" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ApplicationService.DTOs" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEmployee_Message_InputMessage">
+    <wsdl:part name="parameters" element="tns:Message" />
+  </wsdl:message>
+  <wsdl:message name="IEmployee_Message_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmployee_GetEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployees" />
+  </wsdl:message>
+  <wsdl:message name="IEmployee_GetEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmployee_GetEmployeeByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeByID" />
+  </wsdl:message>
+  <wsdl:message name="IEmployee_GetEmployeeByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmployee_PostEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IEmployee_PostEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmployee_DeleteEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IEmployee_DeleteEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmployee_SoftDeleteEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:SoftDeleteEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IEmployee_SoftDeleteEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SoftDeleteEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEmployee">
+    <wsdl:operation name="Message">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmployee/Message" message="tns:IEmployee_Message_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmployee/MessageResponse" message="tns:IEmployee_Message_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmployee/GetEmployees" message="tns:IEmployee_GetEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmployee/GetEmployeesResponse" message="tns:IEmployee_GetEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmployee/GetEmployeeByID" message="tns:IEmployee_GetEmployeeByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmployee/GetEmployeeByIDResponse" message="tns:IEmployee_GetEmployeeByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmployee/PostEmployee" message="tns:IEmployee_PostEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmployee/PostEmployeeResponse" message="tns:IEmployee_PostEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmployee/DeleteEmployee" message="tns:IEmployee_DeleteEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmployee/DeleteEmployeeResponse" message="tns:IEmployee_DeleteEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SoftDeleteEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmployee/SoftDeleteEmployee" message="tns:IEmployee_SoftDeleteEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmployee/SoftDeleteEmployeeResponse" message="tns:IEmployee_SoftDeleteEmployee_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEmployee" type="tns:IEmployee">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Message">
+      <soap:operation soapAction="http://tempuri.org/IEmployee/Message" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <soap:operation soapAction="http://tempuri.org/IEmployee/GetEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByID">
+      <soap:operation soapAction="http://tempuri.org/IEmployee/GetEmployeeByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostEmployee">
+      <soap:operation soapAction="http://tempuri.org/IEmployee/PostEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <soap:operation soapAction="http://tempuri.org/IEmployee/DeleteEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SoftDeleteEmployee">
+      <soap:operation soapAction="http://tempuri.org/IEmployee/SoftDeleteEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Employee">
+    <wsdl:port name="BasicHttpBinding_IEmployee" binding="tns:BasicHttpBinding_IEmployee">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WcfServiceLibrary/Employee/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

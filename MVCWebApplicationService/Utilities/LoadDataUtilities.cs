@@ -15,5 +15,12 @@ namespace MVCWebApplicationService.Utilities
                 return new SelectList(service.GetCustomers(), "Id", "Title");
             }
         }
+        public static SelectList LoadEmployeesData()
+        {
+            using (EmployeeService.EmployeeClient service = new EmployeeService.EmployeeClient())
+            {
+                return new SelectList(service.GetEmployees(), "Id", "Title");
+            }
+        }
     }
 }

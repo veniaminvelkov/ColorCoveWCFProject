@@ -17,7 +17,7 @@ namespace ApplicationService.Implementations
 
             using (UnitOfWork unitOfWork = new UnitOfWork())
             {
-                foreach (var item in unitOfWork.CustomerRepository.Get())
+                foreach (var item in unitOfWork.EmployeeRepository.Get())
                 {
                     if (item.IsSoftDeleted == false)
                     {

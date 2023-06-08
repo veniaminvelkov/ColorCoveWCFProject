@@ -127,7 +127,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\EmployeeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -144,6 +150,12 @@
     <None Include="Connected Services\CustomerService\configuration91.svcinfo" />
     <None Include="Connected Services\CustomerService\configuration.svcinfo" />
     <None Include="Connected Services\CustomerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\EmployeeService\configuration91.svcinfo" />
+    <None Include="Connected Services\EmployeeService\configuration.svcinfo" />
+    <None Include="Connected Services\EmployeeService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -168,6 +180,17 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Properties\DataSources\ApplicationService.DTOs.CustomerDTO.datasource" />
+    <None Include="Connected Services\EmployeeService\ApplicationService.DTOs.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmployeeService\service.wsdl" />
+    <None Include="Connected Services\EmployeeService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmployeeService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Properties\DataSources\ApplicationService.DTOs.EmployeeDTO.datasource" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -197,6 +220,10 @@
     <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -229,6 +256,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\CustomerService\" />
+    <WCFMetadataStorage Include="Connected Services\EmployeeService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
