@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="Customer" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ApplicationService.DTOs" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICustomer_Message_InputMessage">
+    <wsdl:part name="parameters" element="tns:Message" />
+  </wsdl:message>
+  <wsdl:message name="ICustomer_Message_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomer_GetCustomers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomers" />
+  </wsdl:message>
+  <wsdl:message name="ICustomer_GetCustomers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomer_GetCustomerByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerByID" />
+  </wsdl:message>
+  <wsdl:message name="ICustomer_GetCustomerByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomer_PostCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICustomer_PostCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomer_DeleteCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICustomer_DeleteCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomer_SoftDeleteCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:SoftDeleteCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICustomer_SoftDeleteCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SoftDeleteCustomerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICustomer">
+    <wsdl:operation name="Message">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomer/Message" message="tns:ICustomer_Message_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomer/MessageResponse" message="tns:ICustomer_Message_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomer/GetCustomers" message="tns:ICustomer_GetCustomers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomer/GetCustomersResponse" message="tns:ICustomer_GetCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomer/GetCustomerByID" message="tns:ICustomer_GetCustomerByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomer/GetCustomerByIDResponse" message="tns:ICustomer_GetCustomerByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomer/PostCustomer" message="tns:ICustomer_PostCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomer/PostCustomerResponse" message="tns:ICustomer_PostCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomer/DeleteCustomer" message="tns:ICustomer_DeleteCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomer/DeleteCustomerResponse" message="tns:ICustomer_DeleteCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SoftDeleteCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomer/SoftDeleteCustomer" message="tns:ICustomer_SoftDeleteCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomer/SoftDeleteCustomerResponse" message="tns:ICustomer_SoftDeleteCustomer_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICustomer" type="tns:ICustomer">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Message">
+      <soap:operation soapAction="http://tempuri.org/ICustomer/Message" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomers">
+      <soap:operation soapAction="http://tempuri.org/ICustomer/GetCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByID">
+      <soap:operation soapAction="http://tempuri.org/ICustomer/GetCustomerByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICustomer/PostCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICustomer/DeleteCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SoftDeleteCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICustomer/SoftDeleteCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Customer">
+    <wsdl:port name="BasicHttpBinding_ICustomer" binding="tns:BasicHttpBinding_ICustomer">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WcfServiceLibrary/Service2/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
