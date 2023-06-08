@@ -132,6 +132,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\OrderService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\PaintService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,6 +145,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PaintController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -165,9 +171,28 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\OrderService\ApplicationService.DTOs.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OrderService\Data.Entities.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OrderService\service.wsdl" />
+    <None Include="Connected Services\OrderService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OrderService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\PaintService\configuration91.svcinfo" />
     <None Include="Connected Services\PaintService\configuration.svcinfo" />
     <None Include="Connected Services\PaintService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\OrderService\configuration91.svcinfo" />
+    <None Include="Connected Services\OrderService\configuration.svcinfo" />
+    <None Include="Connected Services\OrderService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -214,6 +239,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Properties\DataSources\ApplicationService.DTOs.PaintDTO.datasource" />
+    <Content Include="Properties\DataSources\ApplicationService.DTOs.OrderDTO.datasource" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -251,6 +277,10 @@
     <Content Include="Views\Paint\Create.cshtml" />
     <Content Include="Views\Paint\Edit.cshtml" />
     <Content Include="Views\Paint\Details.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Edit.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -284,6 +314,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\CustomerService\" />
     <WCFMetadataStorage Include="Connected Services\EmployeeService\" />
+    <WCFMetadataStorage Include="Connected Services\OrderService\" />
     <WCFMetadataStorage Include="Connected Services\PaintService\" />
   </ItemGroup>
   <PropertyGroup>

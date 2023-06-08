@@ -29,5 +29,12 @@ namespace MVCWebApplicationService.Utilities
                 return new SelectList(service.GetPaints(), "Id", "Title");
             }
         }
+        public static SelectList LoadOrdersData()
+        {
+            using (OrderService.OrderClient service = new OrderService.OrderClient())
+            {
+                return new SelectList(service.GetOrders(), "Id", "Title");
+            }
+        }
     }
 }
