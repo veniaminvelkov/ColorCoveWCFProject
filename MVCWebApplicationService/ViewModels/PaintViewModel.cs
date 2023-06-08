@@ -35,13 +35,13 @@ namespace MVCWebApplicationService.ViewModels
 
         public PaintViewModel(PaintDTO paintDTO)
         {
-            paintDTO.Id = Id;
-            paintDTO.PaintType = PaintType;
-            paintDTO.Brand = Brand;
-            paintDTO.Price = Price;
-            paintDTO.ExpiryDate = ExpiryDate;
-            paintDTO.IsAvailable = IsAvailable;
-            paintDTO.Quantity = Quantity;
+            Id = paintDTO.Id;
+            PaintType = paintDTO.PaintType;
+            Brand = paintDTO.Brand;
+            Price = paintDTO.Price;
+            ExpiryDate= paintDTO.ExpiryDate;
+            IsAvailable = paintDTO.IsAvailable;
+            Quantity = paintDTO.Quantity;
         }
     }
 }

@@ -22,5 +22,12 @@ namespace MVCWebApplicationService.Utilities
                 return new SelectList(service.GetEmployees(), "Id", "Title");
             }
         }
+        public static SelectList LoadPaintsData()
+        {
+            using (PaintService.PaintClient service = new PaintService.PaintClient())
+            {
+                return new SelectList(service.GetPaints(), "Id", "Title");
+            }
+        }
     }
 }

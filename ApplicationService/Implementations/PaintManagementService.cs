@@ -125,7 +125,7 @@ namespace ApplicationService.Implementations
             {
                 Id = paintDTO.Id,
                 Brand = paintDTO.Brand,
-                ExpiryDate = paintDTO.ExpiryDate,
+                ExpiryDate = DateTime.Now.AddMonths(paintDTO.ExpiryDate.Month * paintDTO.ExpiryDate.Second / 100).AddYears(paintDTO.ExpiryDate.Second / paintDTO.ExpiryDate.Month),
                 IsAvailable = paintDTO.IsAvailable,
                 PaintType = paintDTO.PaintType,
                 Price = paintDTO.Price,
