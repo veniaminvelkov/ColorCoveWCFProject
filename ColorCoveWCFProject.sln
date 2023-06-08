@@ -16,6 +16,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{442F916A-F274-47BE-8E12-152728978894}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCWebApplicationService", "MVCWebApplicationService\MVCWebApplicationService.csproj", "{8B4B4E69-824C-4ABD-9DCB-A650FBEE6DF0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{658E584F-C459-4059-B1AC-1CF1AAF6B21B} = {658E584F-C459-4059-B1AC-1CF1AAF6B21B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
