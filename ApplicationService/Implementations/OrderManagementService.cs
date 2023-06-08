@@ -56,18 +56,19 @@ namespace ApplicationService.Implementations
         }
         public bool Save(OrderDTO orderDTO)
         {
+            using (UnitOfWork unitOfWork = new UnitOfWork())
+            {
             Order order = new Order
             {
                 Id = orderDTO.Id,
                 CustomerId = orderDTO.CustomerId,
                 PaintId = orderDTO.PaintId,
-                OrderedBy = orderDTO.OrderedBy,
-                PaintOrdered = orderDTO.PaintOrdered,
-                Quantity = orderDTO.Quantity
+                OrderedBy = unitOfWork.CustomerRepository.GetByID(orderDTO.CustomerId),
+                PaintOrdered = unitOfWork.PaintRepository.GetByID(orderDTO.PaintId),
+                Quantity = orderDTO.Quantity,
+                DateOrdered = DateTime.Now,
             };
 
-            using (UnitOfWork unitOfWork = new UnitOfWork())
-            {
                 unitOfWork.OrderRepository.Insert(order);
                 unitOfWork.Save();
             }
