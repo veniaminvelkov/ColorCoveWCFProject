@@ -68,7 +68,7 @@ namespace ApplicationService.Implementations
                 Quantity = orderDTO.Quantity,
                 DateOrdered = DateTime.Now,
             };
-
+                unitOfWork.OrderRepository.Delete(order.Id);
                 unitOfWork.OrderRepository.Insert(order);
                 unitOfWork.Save();
             }

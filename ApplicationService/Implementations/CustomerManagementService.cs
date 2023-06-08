@@ -70,6 +70,7 @@ namespace ApplicationService.Implementations
 
                 using (UnitOfWork unitOfWork = new UnitOfWork())
                 {
+                    unitOfWork.CustomerRepository.Delete(customer.Id);
                     unitOfWork.CustomerRepository.Insert(customer);
                     unitOfWork.Save();
                 }

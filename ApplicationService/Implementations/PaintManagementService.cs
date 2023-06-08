@@ -143,6 +143,7 @@ namespace ApplicationService.Implementations
                     unitOfWork.PaintRepository.Delete(paint.Id);
                 }
                 */
+                unitOfWork.PaintRepository.Delete(paint.Id);
                 unitOfWork.PaintRepository.Insert(paint);
                 unitOfWork.Save();
             }
